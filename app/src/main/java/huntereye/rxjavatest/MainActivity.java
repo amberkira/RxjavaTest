@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -21,37 +23,18 @@ import rx.functions.Func2;
 public class MainActivity extends ActionBarActivity {
 
     private SharedPreferences LoginTaken;
+    private TextView accountTx;
+    private TextView codeTx;
+    private Button comfirmBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        query().flatMap(new Func1<List<String>, Observable<String>>() {
-            @Override
-            public Observable<String> call(List<String> strings) {
-                return Observable.from(strings);
-            }
-        }).scan(new Func2<String, String, String>() {
-            @Override
-            public String call(String s, String s2) {
-                return null;
-            }
-        })
-                .take(3)
-                .subscribe(new Action1<String>() {
-                    @Override
-                    public void call(String s) {
-                        Log.d("output", "s");
-                    }
-                });
 
     }
 
-    public static Observable<List<String>> query(){
-        List<String> list = Arrays.asList("a","b","c","d");
-        return Observable.just(list,list);
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
