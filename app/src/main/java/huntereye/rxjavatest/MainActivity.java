@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import huntereye.rxjavatest.Base.BaseActivity;
+import huntereye.rxjavatest.Base.BaseMvpActivity;
 import huntereye.rxjavatest.LoginModule.LoginPresenter.LoginPresenter;
 import huntereye.rxjavatest.LoginModule.LoginView.ILoginView;
 
 
-public class MainActivity extends ActionBarActivity implements ILoginView,View.OnClickListener {
+public class MainActivity extends BaseMvpActivity implements ILoginView,View.OnClickListener {
 
     private SharedPreferences LoginTaken;
     private TextView accountTx;
@@ -34,33 +36,13 @@ public class MainActivity extends ActionBarActivity implements ILoginView,View.O
         codeTx = (TextView) findViewById(R.id.code);
         comfirmBtn = (Button) findViewById(R.id.btn_login_comfirm);
         comfirmBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void initPresenter() {
         mPresenter = new LoginPresenter(this);
     }
 
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void showProgress() {
@@ -101,4 +83,6 @@ public class MainActivity extends ActionBarActivity implements ILoginView,View.O
     public void onClick(View view) {
         mPresenter.InternetAccess();
     }
+
+
 }
