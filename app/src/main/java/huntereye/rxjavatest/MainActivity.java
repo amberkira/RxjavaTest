@@ -1,16 +1,12 @@
 package huntereye.rxjavatest;
 
+import android.app.PendingIntent;
 import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-import huntereye.rxjavatest.Base.BaseActivity;
 import huntereye.rxjavatest.Base.BaseMvpActivity;
 import huntereye.rxjavatest.LoginModule.LoginPresenter.LoginPresenter;
 import huntereye.rxjavatest.LoginModule.LoginView.ILoginView;
@@ -65,18 +61,19 @@ public class MainActivity extends BaseMvpActivity implements ILoginView,View.OnC
     }
 
     @Override
-    public void getAccount() {
+    public String getAccount() {
+        return accountTx.getText().toString();
 
     }
 
     @Override
-    public void getCode() {
-
+    public String getCode() {
+        return codeTx.getText().toString();
     }
 
     @Override
     public void setCodeNull() {
-
+        codeTx.setText("");
     }
 
     @Override

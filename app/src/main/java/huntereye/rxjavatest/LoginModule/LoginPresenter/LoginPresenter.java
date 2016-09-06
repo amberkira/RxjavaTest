@@ -3,6 +3,7 @@ package huntereye.rxjavatest.LoginModule.LoginPresenter;
 
 import huntereye.rxjavatest.LoginModule.LoginModel.LoginModel;
 import huntereye.rxjavatest.LoginModule.LoginView.ILoginView;
+import rx.functions.Func1;
 
 /**
  * Created by Administrator on 2016/9/5.
@@ -17,6 +18,7 @@ public class LoginPresenter {
     }
 
     public void saveUserBean(String name,String code){
+        mLoginModel.setBean(name,code);
 
     }
 

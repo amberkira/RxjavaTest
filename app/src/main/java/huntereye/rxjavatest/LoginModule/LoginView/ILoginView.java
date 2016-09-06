@@ -8,7 +8,7 @@ public interface ILoginView {
     public void hideProgress();
     public void LodingSucceed();
     public void LodingFailed();
-    public void getAccount();
-    public void getCode();
+    public String getAccount();
+    public String getCode();
     public void setCodeNull();
 }
