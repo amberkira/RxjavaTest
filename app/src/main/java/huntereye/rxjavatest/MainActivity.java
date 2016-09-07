@@ -13,8 +13,7 @@ import huntereye.rxjavatest.Http.*;
 import huntereye.rxjavatest.LoginModule.LoginModel.LoginBean;
 import huntereye.rxjavatest.LoginModule.LoginPresenter.LoginPresenter;
 import huntereye.rxjavatest.LoginModule.LoginView.ILoginView;
-import rx.Observable;
-import rx.Scheduler;
+
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;

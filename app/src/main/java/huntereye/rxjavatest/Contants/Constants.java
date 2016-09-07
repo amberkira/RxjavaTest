@@ -11,4 +11,6 @@ import huntereye.rxjavatest.UniversalApplicantion;
 public class Constants {
     public SharedPreferences LoginToken = UniversalApplicantion.getContext()
                                             .getSharedPreferences("token", Context.MODE_PRIVATE);
+    public static final String BASEURL = "";
+    public static final String RELATIVEURL = "";
 }
